@@ -1,25 +1,45 @@
-'use strict';
+// 'use strict';
 
-// brings in the assert module for unit testing
+// // brings in the assert module for unit testing
 const assert = require('assert');
-// brings in the readline module to access the command line
+// // brings in the readline module to access the command line
 const readline = require('readline');
-// use the readline module to print out to the command line
+// // use the readline module to print out to the command line
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  const vowels = ["a", "e", "i", "o", "u"]
+
+  //main function
+  let pigLatin = (word) => {
+    word = word.trim().toLowerCase()
+    if(vowels.includes(word[0])){
+      return word + "yay"
+    } else {
+      // This is RegEx = Regiular Expressions
+      let firstmatch = word.match(/[aeiou]/g) || 0
+      console.log(firstmatch)
+      // w3 school .indexOf()
+      let vowel = word.indexOf(firstmatch[0])
+      console.log(vowel)
+      if(vowel === 0){
+        return word + "ay"
+      } else {
+        // w3 School .substring()
+        return word.substring(vowel) + word.substring(0,vowel) + 'ay'
+      }
+    }
+  }
+
+  console.log(pigLatin('tomato'))
 
 
-const pigLatin = (word) => {
 
-  // Your code here
-
-}
-
-// the first function called in the program to get an input from the user
-// to run the function use the command: node main.js
-// to close it ctrl + C
+// // the first function called in the program to get an input from the user
+// // to run the function use the command: node main.js
+// // to close it ctrl + C
 const getPrompt = () => {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
@@ -55,11 +75,6 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
-
-
-
-
-
 
 // **********
 //   HINTS
