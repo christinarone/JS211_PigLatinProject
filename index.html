@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="main.js"></script>
+    <script defer src="index.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>PigLatin-GUI</h1>
     <hr/>
-    <div id="display-element"></div>
-    <button onclick="displayDate()">Click Me</button>
+    <input id='input' type="text" placeholder="type word">
+    <button onclick="handleClick()">translate</button>
     <hr/>
+    <h3>Pig Latin Translation</h3>
+    <p id="output"></p>
   </body>
 </html>
